@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HackerFab India Documentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Michroma&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Share Tech Mono', monospace;
+            background: #000000;
+            color: #ffffff;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            color: #ffffff;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #ffffff;
+        }
+
+        header h1 {
+            font-family: 'Michroma', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 8px;
+            font-weight: 400;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 4px;
+            margin-top: 1rem;
+        }
+
+        .content-wrapper {
+            background: #000000;
+            border: 2px solid #ffffff;
+            overflow: hidden;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: #000000;
+            border-bottom: 2px solid #ffffff;
+            overflow-x: auto;
+        }
+
+        .nav-tab {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #ffffff;
+            transition: all 0.2s;
+            white-space: nowrap;
+            border-right: 1px solid #ffffff;
+            font-family: 'Michroma', sans-serif;
+            letter-spacing: 2px;
+        }
+
+        .nav-tab:last-child {
+            border-right: none;
+        }
+
+        .nav-tab:hover {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        .nav-tab.active {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        .content {
+            padding: 2.5rem;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        h2 {
+            font-family: 'Michroma', sans-serif;
+            color: #ffffff;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            border-bottom: 2px solid #ffffff;
+            padding-bottom: 0.5rem;
+            letter-spacing: 4px;
+            font-weight: 400;
+        }
+
+        h3 {
+            font-family: 'Michroma', sans-serif;
+            color: #ffffff;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            letter-spacing: 3px;
+            font-weight: 400;
+        }
+
+        ul {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.7rem;
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        p {
+            font-size: 1rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        a {
+            color: #ffffff;
+            text-decoration: none;
+            border-bottom: 1px solid #ffffff;
+            transition: all 0.2s;
+        }
+
+        a:hover {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        .card {
+            background: #000000;
+            border: 1px solid #ffffff;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .card h3 {
+            margin-top: 0;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #000000;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+            font-weight: 400;
+            transition: all 0.2s;
+            font-family: 'Michroma', sans-serif;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+        }
+
+        .btn:hover {
+            background: #ffffff;
+            color: #000000;
+            border-bottom: 2px solid #ffffff;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .video-card {
+            background: #000000;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.2s;
+            border: 1px solid #ffffff;
+        }
+
+        .video-card:hover {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: #000000;
+            color: #ffffff;
+            font-size: 0.7rem;
+            font-weight: 400;
+            margin-left: 0.5rem;
+            border: 1px solid #ffffff;
+            font-family: 'Michroma', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        footer {
+            text-align: center;
+            color: #ffffff;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            border-top: 2px solid #ffffff;
+            font-family: 'Michroma', sans-serif;
+            letter-spacing: 2px;
+        }
+
+        ol {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        ol li {
+            margin-bottom: 0.7rem;
+        }
+
+        strong {
+            color: #ffffff;
+            font-weight: 400;
+        }
+
+        small {
+            opacity: 0.8;
+        }
+
+        .status-marker {
+            font-family: 'Michroma', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+                letter-spacing: 4px;
+            }
+
+            header p {
+                font-size: 0.9rem;
+                letter-spacing: 2px;
+            }
+
+            .content {
+                padding: 1.5rem;
+            }
+
+            .nav-tab {
+                padding: 0.75rem 1rem;
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>HACKERFAB INDIA</h1>
+            <p>SEMICONDUCTOR FABRICATION INITIATIVE</p>
+        </header>
+
+        <div class="content-wrapper">
+            <div class="nav-tabs">
+                <button class="nav-tab active" onclick="showTab('intro')">INTRODUCTION</button>
+                <button class="nav-tab" onclick="showTab('getting-started')">GETTING STARTED</button>
+                <button class="nav-tab" onclick="showTab('litho')">LITHOGRAPHY</button>
+                <button class="nav-tab" onclick="showTab('resources')">RESOURCES</button>
+            </div>
+
+            <div class="content">
+                <!-- Introduction Tab -->
+                <div id="intro" class="tab-content active">
+                    <h2>WHAT IS HACKERFAB</h2>
+                    <div class="card">
+                        <ul>
+                            <li>STUDENT-BUILT FABRICATION TOOLS</li>
+                            <li>COMPLETELY OPEN-SOURCE</li>
+                            <li>LOW COST</li>
+                            <li>HANDS-ON EXPOSURE TO FABRICATION</li>
+                        </ul>
+                    </div>
+
+                    <h3>WHY BUILD OUR OWN TOOLS</h3>
+                    <p>Commercial and academic tools are inaccessible, expensive, and often don't provide the hands-on learning experience needed to truly understand semiconductor fabrication. By building our own tools, we learn the first-principle workings and make fabrication accessible to everyone.</p>
+
+                    <h3>WHY HACKERFAB INDIA</h3>
+                    <div class="card">
+                        <h3>COMMON CHALLENGES</h3>
+                        <ul>
+                            <li>Local procurement of components</li>
+                            <li>Higher budgetary considerations</li>
+                            <li>Need for redesign with locally available materials</li>
+                        </ul>
+                        <h3>COMMON ECOSYSTEM</h3>
+                        <ul>
+                            <li>Similar outreach and funding pipelines</li>
+                            <li>Better open source replicability</li>
+                            <li>Improved logistical support</li>
+                        </ul>
+                    </div>
+
+                    <h3>HACKERFAB INDIA GOALS</h3>
+                    <ul>
+                        <li>First indigenous toolset by 2027</li>
+                        <li>Help colleges across India create HackerFabs</li>
+                        <li>Act as a talent pipeline for semiconductor fabrication industry</li>
+                        <li>Give back to the global HackerFab community</li>
+                    </ul>
+
+                    <div class="button-group">
+                        <a href="https://discord.gg/6Y4xBsmq" class="btn" target="_blank">JOIN HACKERFAB INDIA</a>
+                        <a href="https://discord.gg/PZaescfsms" class="btn" target="_blank">GLOBAL COMMUNITY</a>
+                        <a href="https://hackerfabiitb.github.io/" class="btn" target="_blank">HACKERFAB IITB</a>
+                    </div>
+                </div>
+
+                <!-- Getting Started Tab -->
+                <div id="getting-started" class="tab-content">
+                    <h2>GETTING STARTED</h2>
+                    
+                    <h3>WHAT YOU NEED</h3>
+                    <div class="card">
+                        <ul>
+                            <li>CURIOSITY AND PASSION FOR THE PROJECT</li>
+                            <li>BASIC LAB SPACE FOR ELECTRONICS WORK</li>
+                            <li>ACCESS TO 3D PRINTERS OR PRINTING SERVICES</li>
+                            <li>STARTING BUDGET: AS LOW AS 50000 INR</li>
+                        </ul>
+                    </div>
+
+                    <h3>FIRST STEPS</h3>
+                    <ol>
+                        <li>BUILD SPIN COATER V0 <span class="status-badge">WIP</span></li>
+                        <li>BUILD LITHO V0 [PROOF-OF-CONCEPT]</li>
+                        <li>TAKE SUBSEQUENT STEPS AS THEY COME</li>
+                    </ol>
+
+                    <h3>HOW TO GET HELP</h3>
+                    <div class="card">
+                        <p>HACKERFAB INDIA DISCORD: Ask questions on #no-stupid-questions, #litho-v1, and #spin-coater-v1 channels</p>
+                        <p>GLOBAL COMMUNITY: For advanced questions, reach out to the global HackerFab community</p>
+                        <p>DIRECT HELP: Contact us on Discord to set up a meeting if you're just getting started</p>
+                    </div>
+
+                    <h3>RECOMMENDED STARTING RESOURCES</h3>
+                    <p>Get a basic understanding of the semiconductor fabrication process through these resources:</p>
+                    <div class="video-grid">
+                        <div class="video-card">
+                            <p>HOW MICROCHIPS ARE MADE</p>
+                            <p><small>CPU MANUFACTURING PROCESS</small></p>
+                        </div>
+                        <div class="video-card">
+                            <p>SILICON RUN I AND II</p>
+                            <p><small>CLASSIC FAB DOCUMENTARIES</small></p>
+                        </div>
+                        <div class="video-card">
+                            <p>EE669 CDEEP IITB</p>
+                            <p><small>ACADEMIC COURSE MATERIALS</small></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lithography Tab -->
+                <div id="litho" class="tab-content">
+                    <h2>LITHOGRAPHY V0 <span class="status-badge">POC</span></h2>
+                    
+                    <h3>WHAT IS LITHOGRAPHY</h3>
+                    <p>Lithography [litho] is the machine that enables us to create really small patterns on wafers for making integrated circuits. It's performed after coating a film of photoresist on the wafer.</p>
+
+                    <h3>FIRST PRINCIPLES AND WORKING</h3>
+                    <div class="card">
+                        <ol>
+                            <li>GOAL: Create physical patterns on a wafer</li>
+                            <li>KEY MATERIAL: Photoresist - a chemical whose solubility changes when exposed to UV light</li>
+                            <li>PROCESS: Expose certain areas to UV light, then dissolve in solvent to create patterns</li>
+                            <li>INNOVATION: Transform physical pattern problem into UV light pattern problem</li>
+                            <li>OUR APPROACH: DLP projector-based maskless lithography [no electron beam writer needed]</li>
+                        </ol>
+                    </div>
+
+                    <h3>DLP TECHNOLOGY</h3>
+                    <div class="card">
+                        <h3>WHAT IS DLP</h3>
+                        <p>Digital Light Processing uses a DMD [Digital Micromirror Device] chip containing tiny mirrors for each pixel [e.g., 1920x1080 mirrors for Full HD].</p>
+                        
+                        <h3>HOW IT WORKS</h3>
+                        <ul>
+                            <li>Each mirror can be individually controlled to be ON or OFF</li>
+                            <li>Mirrors mechanically tilt toward the projection target [ON] or away [OFF]</li>
+                            <li>RGB color wheel + Pulse Width Modulation = any color per pixel</li>
+                            <li>Result: Precise, addressable pattern generation</li>
+                        </ul>
+                    </div>
+
+                    <h3>WHY MASKLESS</h3>
+                    <p>Traditional lithography requires expensive masks made with electron beam writers - equipment most colleges don't have access to. Our DLP-based approach eliminates this requirement, making lithography accessible.</p>
+
+                    <h3>BUILD PROGRESS</h3>
+                    <ul>
+                        <li><span class="status-marker">[COMPLETE]</span> PART 1: COMPONENT SOURCING - DLP PROJECTOR SELECTION</li>
+                        <li><span class="status-marker">[IN PROGRESS]</span> PART 2: ASSEMBLY AND FIRST IMAGE</li>
+                        <li><span class="status-marker">[PLANNED]</span> FUTURE STEPS</li>
+                        <li><span class="status-marker">[PLANNED]</span> DESIGN FILES</li>
+                    </ul>
+                </div>
+
+                <!-- Resources Tab -->
+                <div id="resources" class="tab-content">
+                    <h2>RESOURCES AND REFERENCES</h2>
+                    
+                    <h3>SAM ZELOOF WORK</h3>
+                    <div class="card">
+                        <p>The inspiration behind HackerFab. Sam Zeloof created homemade silicon chips in his garage. This is where we want to reach.</p>
+                        <ul>
+                            <li><a href="https://sam.zeloof.xyz/second-ic/" target="_blank">Z2 - UPGRADED HOMEMADE SILICON CHIPS</a></li>
+                            <li>MASKLESS PHOTOLITHOGRAPHY STEPPER FOR HOMEMADE CHIPS</li>
+                        </ul>
+                    </div>
+
+                    <h3>MODERN LITHOGRAPHY</h3>
+                    <ul>
+                        <li><a href="https://www.asml.com/" target="_blank">ASML LITHOGRAPHY PRINCIPLES</a></li>
+                    </ul>
+
+                    <h3>HACKERFAB BUILD RESOURCES</h3>
+                    <div class="video-grid">
+                        <div class="video-card">
+                            <p>MASKLESS WAFER STEPPER</p>
+                            <p><small>PART 1: OPTICS</small></p>
+                        </div>
+                        <div class="video-card">
+                            <p>DLP PROJECTOR LITHOGRAPHY</p>
+                            <p><small>10 MICRON FEATURE SIZES</small></p>
+                        </div>
+                        <div class="video-card">
+                            <p>MASKLESS STEPPER</p>
+                            <p><small>HOMEMADE CHIPS</small></p>
+                        </div>
+                        <div class="video-card">
+                            <p>SPEEDRUNNING</p>
+                            <p><small>30 YEARS OF LITHOGRAPHY</small></p>
+                        </div>
+                    </div>
+
+                    <h3>COMMUNITY DOCUMENTATION</h3>
+                    <div class="button-group">
+                        <a href="https://docs.hackerfab.org/home/" class="btn" target="_blank">GLOBAL HACKERFAB DOCS</a>
+                        <a href="https://hackerfabiitb.github.io/" class="btn" target="_blank">HACKERFAB IITB SITE</a>
+                    </div>
+
+                    <div class="card">
+                        <h3>NOTE</h3>
+                        <p>This documentation is a work in progress. Many sections are being actively developed. Join our Discord community to stay updated and contribute.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>HACKERFAB INDIA</p>
+            <p><small>OPEN SOURCE | COMMUNITY DRIVEN | INNOVATION FOCUSED</small></p>
+        </footer>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            const tabs = document.querySelectorAll('.tab-content');
+            const buttons = document.querySelectorAll('.nav-tab');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
