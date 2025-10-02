@@ -46,6 +46,15 @@
             font-weight: 400;
             letter-spacing: 4px;
             margin-top: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
         }
 
         .content-wrapper {
@@ -290,65 +299,24 @@
         <header>
             <h1>HACKERFAB IITB DOCUMENTATION</h1>
             <p>Dream - Hack - Assemble - Repeat</p>
+            <div class="header-buttons">
+                <a href="https://discord.gg/6Y4xBsmq" class="btn" target="_blank">JOIN HACKERFAB INDIA</a>
+                <a href="https://discord.gg/PZaescfsms" class="btn" target="_blank">GLOBAL COMMUNITY</a>
+                <a href="https://hackerfabiitb.github.io/" class="btn" target="_blank">HACKERFAB IITB</a>
+            </div>
         </header>
 
         <div class="content-wrapper">
             <div class="nav-tabs">
-                <button class="nav-tab active" onclick="showTab('intro')">INTRODUCTION</button>
-                <button class="nav-tab" onclick="showTab('getting-started')">GETTING STARTED</button>
+                <button class="nav-tab active" onclick="showTab('getting-started')">GETTING STARTED</button>
                 <button class="nav-tab" onclick="showTab('litho')">LITHOGRAPHY</button>
+                <button class="nav-tab" onclick="showTab('spin-coater')">SPIN COATER</button>
                 <button class="nav-tab" onclick="showTab('resources')">RESOURCES</button>
             </div>
 
             <div class="content">
-                <!-- Introduction Tab -->
-                <div id="intro" class="tab-content active">
-                    <h2>WHAT IS HACKERFAB</h2>
-                    <div class="card">
-                        <ul>
-                            <li>STUDENT-BUILT FABRICATION TOOLS</li>
-                            <li>COMPLETELY OPEN-SOURCE</li>
-                            <li>LOW COST</li>
-                            <li>HANDS-ON EXPOSURE TO FABRICATION</li>
-                        </ul>
-                    </div>
-
-                    <h3>WHY BUILD OUR OWN TOOLS</h3>
-                    <p>Commercial and academic tools are inaccessible, expensive, and often don't provide the hands-on learning experience needed to truly understand semiconductor fabrication. By building our own tools, we learn the first-principle workings and make fabrication accessible to everyone.</p>
-
-                    <h3>WHY HACKERFAB ? </h3>
-                    <div class="card">
-                        <h3>COMMON CHALLENGES</h3>
-                        <ul>
-                            <li>Local procurement of components</li>
-                            <li>Higher budgetary considerations</li>
-                            <li>Need for redesign with locally available materials</li>
-                        </ul>
-                        <h3>COMMON ECOSYSTEM</h3>
-                        <ul>
-                            <li>Similar outreach and funding pipelines</li>
-                            <li>Better open source replicability</li>
-                            <li>Improved logistical support</li>
-                        </ul>
-                    </div>
-
-                    <h3>HACKERFAB INDIA GOALS</h3>
-                    <ul>
-                        <li>First indigenous toolset by 2027</li>
-                        <li>Help colleges across India create HackerFabs</li>
-                        <li>Act as a talent pipeline for semiconductor fabrication industry</li>
-                        <li>Give back to the global HackerFab community</li>
-                    </ul>
-
-                    <div class="button-group">
-                        <a href="https://discord.gg/6Y4xBsmq" class="btn" target="_blank">JOIN HACKERFAB INDIA</a>
-                        <a href="https://discord.gg/PZaescfsms" class="btn" target="_blank">GLOBAL COMMUNITY</a>
-                        <a href="https://hackerfabiitb.github.io/" class="btn" target="_blank">HACKERFAB IITB</a>
-                    </div>
-                </div>
-
                 <!-- Getting Started Tab -->
-                <div id="getting-started" class="tab-content">
+                <div id="getting-started" class="tab-content active">
                     <h2>GETTING STARTED</h2>
                     
                     <h3>WHAT YOU NEED</h3>
@@ -435,6 +403,60 @@
                         <li><span class="status-marker">[PLANNED]</span> FUTURE STEPS</li>
                         <li><span class="status-marker">[PLANNED]</span> DESIGN FILES</li>
                     </ul>
+                </div>
+
+                <!-- Spin Coater Tab -->
+                <div id="spin-coater" class="tab-content">
+                    <h2>SPIN COATER V0 <span class="status-badge">WIP</span></h2>
+                    
+                    <h3>WHAT IS A SPIN COATER</h3>
+                    <p>A spin coater is a device used to deposit uniform thin films of photoresist or other materials onto substrates. It's an essential tool in semiconductor fabrication that comes before the lithography process.</p>
+
+                    <h3>FIRST PRINCIPLES AND WORKING</h3>
+                    <div class="card">
+                        <ol>
+                            <li>GOAL: Create uniform thin films on wafer surfaces</li>
+                            <li>KEY PRINCIPLE: Centrifugal force spreads liquid evenly across rotating substrate</li>
+                            <li>PROCESS: Drop photoresist on wafer center, spin at high RPM [1000-8000], excess liquid flies off</li>
+                            <li>RESULT: Uniform coating thickness determined by spin speed and viscosity</li>
+                            <li>OUR APPROACH: Motor-based design with programmable speed control</li>
+                        </ol>
+                    </div>
+
+                    <h3>WHY BUILD OUR OWN</h3>
+                    <div class="card">
+                        <p>Commercial spin coaters cost thousands of dollars and are often overkill for prototyping. A DIY spin coater can achieve similar results for photoresist coating at a fraction of the cost, using readily available motors and 3D printed parts.</p>
+                    </div>
+
+                    <h3>KEY COMPONENTS</h3>
+                    <ul>
+                        <li>High-speed brushless motor [BLDC] or stepper motor</li>
+                        <li>Motor controller with programmable speed</li>
+                        <li>Vacuum chuck or mechanical chuck for wafer holding</li>
+                        <li>Splash guard and collection container</li>
+                        <li>Power supply</li>
+                        <li>3D printed mounting structure</li>
+                    </ul>
+
+                    <h3>BUILD PROGRESS</h3>
+                    <ul>
+                        <li><span class="status-marker">[IN PROGRESS]</span> PART 1: COMPONENT SELECTION AND SOURCING</li>
+                        <li><span class="status-marker">[PLANNED]</span> PART 2: MECHANICAL DESIGN</li>
+                        <li><span class="status-marker">[PLANNED]</span> PART 3: ELECTRONICS AND CONTROL</li>
+                        <li><span class="status-marker">[PLANNED]</span> PART 4: TESTING AND CALIBRATION</li>
+                        <li><span class="status-marker">[PLANNED]</span> DESIGN FILES</li>
+                    </ul>
+
+                    <h3>DESIGN CONSIDERATIONS</h3>
+                    <div class="card">
+                        <ul>
+                            <li>SPEED CONTROL: Need precise RPM control for different coating thicknesses</li>
+                            <li>VIBRATION: Minimize vibration for uniform coatings</li>
+                            <li>SAFETY: Proper splash guards to contain flying photoresist</li>
+                            <li>WAFER HOLDING: Secure mounting without damaging wafer</li>
+                            <li>COST: Keep total cost under 10000 INR for V0</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Resources Tab -->
